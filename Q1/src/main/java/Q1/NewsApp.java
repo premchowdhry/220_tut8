@@ -1,26 +1,21 @@
 package Q1;
 
-import com.dailymail.DailyMail;
 import com.dailymail.DailyMailArticle;
 
 import java.util.*;
 
-import static java.util.Comparator.comparing;
-
 public class NewsApp {
 
-    public List<DailyMailArticle> latestStories() {
+  private final DailyMailAdapter dailyMail = new DailyMailAdapter();
 
-        List<DailyMailArticle> articles = DailyMail.getArticles();
+  public List<DailyMailArticle> latestStories() {
+    return dailyMail.latestStories();
+  }
 
-        articles.sort(comparing(DailyMailArticle::timestamp).reversed());
+  public static void main(String[] args) {
+    new NewsApp().latestStories().forEach(a -> System.out.println(a.hline()));
+  }
 
-        return articles;
-    }
-
-    public static void main(String[] args) {
-        new NewsApp().latestStories().forEach(a -> System.out.println(a.hline()));
-    }
 }
 
 

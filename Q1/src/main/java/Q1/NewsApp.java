@@ -6,10 +6,10 @@ import java.util.*;
 
 public class NewsApp {
 
-  private final DailyMailAdapter dailyMail = new DailyMailAdapter();
+  private final DailyMailAdapter dailyMailAdapter = new DailyMailAdapter();
 
   public List<DailyMailArticle> latestStories() {
-    return dailyMail.latestStories();
+    return dailyMailAdapter.latestStories();
   }
 
   public static void main(String[] args) {
